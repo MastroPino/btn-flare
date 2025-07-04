@@ -41,14 +41,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Mouse move handler for flare effect
-    button.addEventListener("mousemove", function (e) {
+    // Unified function to handle position calculation for both mouse and touch
+    function calculatePosition(clientX, clientY) {
         const rect = button.getBoundingClientRect();
-        const x = e.clientX - rect.left;
+        const x = clientX - rect.left;
         const buttonWidth = rect.width;
         const centerX = buttonWidth / 2;
 
-        // Calculate flare position centered on cursor
+        // Calculate flare position centered on cursor/touch point
         // The flare is 204px wide, so we center it on the cursor
         targetX = x - 102; // Center the 204px flare on cursor
 
@@ -87,20 +87,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 "btn-flare--glow-right"
             );
         }
-    });
+    }
 
-    // Mouse enter handler - start animation loop
-    button.addEventListener("mouseenter", function () {
+    // Unified function to start interaction (mouse enter or touch start)
+    function startInteraction() {
         isMouseOver = true;
 
         // Start animation loop if not already running
         if (!animationId) {
             animationId = requestAnimationFrame(animate);
         }
-    });
+    }
 
-    // Mouse leave handler - animate back to default position
-    button.addEventListener("mouseleave", function () {
+    // Unified function to end interaction (mouse leave or touch end)
+    function endInteraction() {
         isMouseOver = false;
 
         // Cancel any ongoing animation
@@ -147,7 +147,56 @@ document.addEventListener("DOMContentLoaded", function () {
             "btn-flare--glow-left",
             "btn-flare--glow-right"
         );
+    }
+
+    // Mouse event handlers
+    button.addEventListener("mousemove", function (e) {
+        calculatePosition(e.clientX, e.clientY);
     });
+
+    button.addEventListener("mouseenter", startInteraction);
+    button.addEventListener("mouseleave", endInteraction);
+
+    // Touch event handlers
+    button.addEventListener(
+        "touchstart",
+        function (e) {
+            e.preventDefault(); // Prevent default touch behavior
+            const touch = e.touches[0];
+            calculatePosition(touch.clientX, touch.clientY);
+            startInteraction();
+        },
+        { passive: false }
+    );
+
+    button.addEventListener(
+        "touchmove",
+        function (e) {
+            e.preventDefault(); // Prevent scrolling while touching the button
+            const touch = e.touches[0];
+            calculatePosition(touch.clientX, touch.clientY);
+        },
+        { passive: false }
+    );
+
+    button.addEventListener(
+        "touchend",
+        function (e) {
+            e.preventDefault();
+            endInteraction();
+        },
+        { passive: false }
+    );
+
+    // Handle touch cancel (when touch is interrupted)
+    button.addEventListener(
+        "touchcancel",
+        function (e) {
+            e.preventDefault();
+            endInteraction();
+        },
+        { passive: false }
+    );
 
     // Add click handler for demonstration
     button.addEventListener("click", function () {
