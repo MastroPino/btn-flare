@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Launch Live Server",
+            "type": "shell",
+            "command": "echo",
+            "args": [
+                "Project ready! Right-click on index.html and select 'Open with Live Server' to test the button."
+            ],
+            "group": "build",
+            "isBackground": false
+        }
+    ]
+}

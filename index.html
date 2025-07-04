@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Flazio CTA</title>
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Flazio CTA</h1>
+            <div class="btn-flare__wrapper">
+                <!-- Border light blur elements -->
+                <div class="btn-flare__border-blur" style="opacity: 1">
+                    <div class="btn-flare__border-light"></div>
+                </div>
+                <div
+                    class="btn-flare__border-blur btn-flare__border-blur--flipped"
+                    style="opacity: 0"
+                >
+                    <div class="btn-flare__border-light"></div>
+                </div>
+
+                <!-- Main button -->
+                <button class="btn-flare">
+                    <div class="btn-flare__flare">
+                        <div class="btn-flare__flare-inner"></div>
+                        <div class="btn-flare__flare-blur"></div>
+                    </div>
+                    <span class="btn-flare__text">Inizia ora</span>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 17 9"
+                        class="btn-flare__arrow"
+                    >
+                        <path
+                            fill="currentColor"
+                            fill-rule="evenodd"
+                            d="m12.495 0 4.495 4.495-4.495 4.495-.99-.99 2.805-2.805H0v-1.4h14.31L11.505.99z"
+                            clip-rule="evenodd"
+                        ></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
