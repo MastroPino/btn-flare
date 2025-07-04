@@ -1,4 +1,4 @@
-# Huly.io Button Recreation
+# btn-flare
 
 A faithful recreation of the "TRY IT FREE" button from huly.io with the bleeding flare effect that follows the mouse cursor.
 
@@ -13,10 +13,12 @@ A faithful recreation of the "TRY IT FREE" button from huly.io with the bleeding
 ## Project Structure
 
 ```
-ButtonTest/
+btn-flare/
 ├── index.html          # Main HTML structure
 ├── styles.css          # All styling including button and flare effects
 ├── script.js           # JavaScript for mouse interaction and flare positioning
+├── bg.webp             # Background image
+├── test.html           # Test page
 ├── README.md           # This file
 └── .github/
     └── copilot-instructions.md  # Copilot workspace instructions
@@ -28,9 +30,9 @@ ButtonTest/
 
 The button consists of:
 
--   A container `button` element with class `huly-button`
--   A text span with class `button-text`
--   A flare div with class `flare`
+-   A container `button` element with class `btn-flare`
+-   A text span with class `btn-flare__text`
+-   A flare div with class `btn-flare__flare`
 
 ### CSS Styling
 
@@ -68,6 +70,10 @@ This project uses modern CSS features and should work in all modern browsers:
 -   Firefox 55+
 -   Safari 12+
 -   Edge 79+
+
+## Demo
+
+[View Live Demo](https://mastropino.github.io/btn-flare/)
 
 ## License
 
