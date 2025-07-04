@@ -73,7 +73,7 @@ This project uses modern CSS features and should work in all modern browsers:
 
 ## Demo
 
-[View Live Demo](https://mastropino.github.io/btn-flare/)
+[View Live Demo](https://codepen.io/MastroPino/pen/yyNdPVz)
 
 ## License
 
